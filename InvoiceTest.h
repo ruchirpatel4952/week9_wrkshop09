@@ -1,34 +1,41 @@
-// Invoice.h
+// InvoiceTest.h
 #pragma once
-#include <string>
-
-class Invoice {
-public:
-    Invoice(const std::string& invoiceId);
-    void addServiceCost(double costDollars);
-    double getDollarsOwed() const;
-    std::string getInvoiceId() const;
-
-private:
-    std::string invoiceId;
-    double dollarsOwed;
-};
-
-// Invoice.cpp
+#include <iostream>
 #include "Invoice.h"
 
-Invoice::Invoice(const std::string& invoiceId) : invoiceId(invoiceId), dollarsOwed(0.0) {}
-
-void Invoice::addServiceCost(double costDollars) {
-    if (costDollars > 0) {
-        dollarsOwed += costDollars;
+class InvoiceTest {
+public:
+    void runTests() {
+        testAddServiceCost();
+        testGetDollarsOwed();
+        testGetInvoiceId();
+        // Add other test methods here
     }
-}
 
-double Invoice::getDollarsOwed() const {
-    return dollarsOwed;
-}
+private:
+    void testAddServiceCost() {
+        Invoice invoice("ABCD");
+        invoice.addServiceCost(10);
+        if (invoice.getDollarsOwed() != 10) {
+            std::cout << "Test AddServiceCost failed!" << std::endl;
+        }
+    }
 
-std::string Invoice::getInvoiceId() const {
-    return invoiceId;
-}
+    void testGetDollarsOwed() {
+        Invoice invoice("EFGH");
+        invoice.addServiceCost(5);
+        invoice.addServiceCost(7);
+        if (invoice.getDollarsOwed() != 12) {
+            std::cout << "Test GetDollarsOwed failed!" << std::endl;
+        }
+    }
+
+    void testGetInvoiceId() {
+        Invoice invoice("IJKL");
+        if (invoice.getInvoiceId() != "IJKL") {
+            std::cout << "Test GetInvoiceId failed!" << std::endl;
+        }
+    }
+
+    // Add other test functions here
+};
