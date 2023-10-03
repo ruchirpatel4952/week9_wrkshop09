@@ -6,9 +6,9 @@
 int main() {
     UnitTest unitTest;
     unitTest.runTests();
-    
+
     EquivalenceTests equivalenceTests;
-    equivalenceTests.runTests();
+    equivalenceTests.runTests1();
 
     return 0;
 }

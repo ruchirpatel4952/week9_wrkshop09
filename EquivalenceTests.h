@@ -5,7 +5,7 @@
 
 class EquivalenceTests {
 public:
-    void runTests() {
+    void runTests1() {
         testPositiveIntegers();
         testNegativeIntegers();
         testZeroes();
